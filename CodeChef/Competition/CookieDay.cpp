@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+// #define int long long int;
 
 int main() {
 	// your code goes here
@@ -14,25 +15,32 @@ int main() {
         int numberOfCookiesInJar[numberOfJar];
 
         int cookies;
+        int minCookie = INT_MAX;
         for(int i = 0; i<numberOfJar ; i++){
             
             cin>>cookies;
             numberOfCookiesInJar[i] = cookies;
-            cout<<"Cookies in Jar : "<<numberOfCookiesInJar[i]<<endl;    
+            
+        
         }
-        int flag = 0;
-        int prevNumber;
-        for(int i:numberOfCookiesInJar){
-            if(i>=numberOfChildren){
-                prevNumber = i%numberOfChildren;
-                flag = 1;
-                
+        for (int i = 0; i <numberOfJar; i++)
+        {
+            if(numberOfCookiesInJar[i] >= numberOfChildren) {
+                int waste = numberOfCookiesInJar[i]%numberOfChildren;
+                minCookie = min(minCookie,waste);
             }
-
         }
-        if(flag=0){
-            cout<<-1;
+        if (minCookie !=INT_MAX){
+            cout<<minCookie<<endl;
+            
+        }else{
+            cout<<-1<<endl;
         }
+        
+        
+       
+        
+        
         t--;
     }
 
