@@ -2,26 +2,37 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+void printNumber(vector<int> &arr , vector<int> &nextGreater){
 
+    for(int i=0;i<arr.size()-1;i++){
+        
+        if(arr[i]<arr[i+1]){
+            
+            nextGreater[i] = arr[i+1];
+        }else{
+            
+            nextGreater.at(i) = -1;
+        }
+        
+    }
+    nextGreater.at(arr.size()-1) = -1;
+    for(int i : nextGreater){
+        cout<<i<<endl;
+    }
+    
+}
 
 vector<int> nextGreater(vector<int> &arr, int n) {
     // Write your code here
-    vector<int> nextGreater[n];
-    for(int i=0;i<arr.size()-1;i++){
-        if(arr[i]<arr[i+1]){
-            nextGreater->push_back(arr[i+1]);
-        }else{
-            nextGreater->push_back(-1);
-        }
-    }
-    return nextGreater[n];
+    vector<int> nextGreater(n);
+    printNumber(arr,nextGreater);
+    return nextGreater;
 
 }
 int main(){
-    vector <int> nums = {1,3,2};
-    vector<int> greaterArray =  nextGreater(nums,3);
-    for(int i : greaterArray){
-        cout<<i<<endl;
-    }
+    vector <int> arr = {6 ,3, 7, 3, 6, 2};
+    vector<int> greaterArray =  nextGreater(arr,6);
+    
+    
     return 0 ;
 }

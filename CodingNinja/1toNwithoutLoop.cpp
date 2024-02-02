@@ -2,38 +2,36 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+void printNumber(int x,vector<int> &arr ,int i){
+    if(i<x){
+        arr.push_back(i);
+        i++;
+        printNumber(x,arr,i);
+    }else{
+        arr.push_back(i);
+    }
+    
+    return;
+}
 
-
-vector<int> printNos(int x,int count) {
+vector<int> printNos(int x) {
     // Write Your Code Here
     vector<int> integerArray;
-    int i =0 ;
+    int i = 1;
+    printNumber(x,integerArray,i);
     
-    if(i<x){
-        integerArray.insert(integerArray.begin(),x);
-        // for (int i:integerArray)
-        // {
-        //     cout<<"Index ("<<count<<")"<<i<<endl;
-
-        // }
-        
-        // cout<<"----"<<endl;
-        printNos(x-1,count+1);
-    }
-    // sort(integerArray.begin(),integerArray.end());
 
     return integerArray;
 }
 
 int main(){
-    vector<int> intArray = printNos(5,0);
-    // int count = INT_M
-    // for (int i:intArray)
-    // {
-    //     cout<<"Index ("<<count<<")"<<i<<endl;
-    //     count++;
-    // }
+    vector<int> intArray = printNos(5);
+    int count = 0;
     
-    
+    for(int i:intArray)
+    {
+        cout<<"Index ("<<count<<")"<<i<<endl;
+        count++;
+    }
     return 0 ;
 }
