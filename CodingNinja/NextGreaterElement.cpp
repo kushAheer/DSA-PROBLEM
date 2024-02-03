@@ -30,8 +30,8 @@ vector<int> nextGreater(vector<int> &arr, int n) {
 
 }
 int main(){
-    vector <int> arr = {6 ,3, 7, 3, 6, 2};
-    vector<int> greaterArray =  nextGreater(arr,6);
+    vector <int> arr = {7,12,1,20};
+    vector<int> greaterArray =  nextGreater(arr,4);
     
     
     return 0 ;
