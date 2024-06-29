@@ -1,0 +1,18 @@
+#include<iostream>
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        nums1[n+m];
+        for(int i = m , j = 0 ; i < n+m && j<n; i++ ,j++){
+            nums1[i] = nums2[j];
+        }
+        sort(nums1.begin(),nums1.end());
+    }
+};
+
+int main(){
+
+}
